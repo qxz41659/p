@@ -34,11 +34,11 @@ public class p {
                     System.out.println("输错啦！");
                     return;
             }
-            if (Objects.equals(n, "曲晓贺") && m.equals("龙")) {
+            if (Objects.equals(n, "曲晓贺") && m.equals("蛇")) {
                 System.out.println("啊！" + n + "！你可真是非常非常非常屁啊！");
             }else if(Objects.equals(n, "曲霄致") && m.equals("兔")) {
                 System.out.println("啊！" + n + "！你可太不屁啦！史无前例！");
-            }else if(Objects.equals(n, "曲晓贺") && !m.equals("龙")) {
+            }else if(Objects.equals(n, "曲晓贺") && !m.equals("蛇")) {
                 System.out.println("啊！" + n + "！你生肖不屁，名字很屁");
             }else if(Objects.equals(n, "曲霄致") && !m.equals("兔")) {
                 System.out.println("啊！" + n + "！你名字不屁，生肖很屁");
