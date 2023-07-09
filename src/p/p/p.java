@@ -15,24 +15,8 @@ public class p {
             String n = sc.next();
             System.out.println("请输入你的生肖（只能输入鼠、牛、虎、兔、龙、蛇、马、羊、猴、鸡、狗、猪）");
             String m = sc.next();
-            switch (m) {
-                case "鼠":
-                case "牛":
-                case "虎":
-                case "兔":
-                case "龙":
-                case "蛇":
-                case "马":
-                case "羊":
-                case "猴":
-                case "鸡":
-                case "狗":
-                case "猪":
-                case "屁":
-                    break;
-                default:
-                    System.out.println("输错啦！");
-                    return;
+            while (chp(m)) {
+                m = sc.next();
             }
             if (Objects.equals(n, "曲晓贺") && m.equals("蛇")) {
                 System.out.println("啊！" + n + "！你可真是非常非常非常屁啊！");
@@ -54,8 +38,30 @@ public class p {
                     case 2 -> System.out.println("你很屁");
                 }
             }
-            System.out.println("键入任意数字退出，键入1继续测试");
+            System.out.println("键入任意键退出，键入1继续测试");
             t = Integer.parseInt(sc.next());
         }
+    }
+    public static boolean chp(String p){
+        switch (p) {
+            case "鼠":
+            case "牛":
+            case "虎":
+            case "兔":
+            case "龙":
+            case "蛇":
+            case "马":
+            case "羊":
+            case "猴":
+            case "鸡":
+            case "狗":
+            case "猪":
+            case "屁":
+                break;
+            default:
+                System.out.println("输错啦！重输！");
+                return true;
+        }
+        return false;
     }
 }
