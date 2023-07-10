@@ -9,10 +9,20 @@ public class p {
         Random r = new Random();
         Scanner sc = new Scanner(System.in);
         System.out.println("此程序可以测试你屁不屁，而你只需要输入姓名和生肖");
+        System.out.println("键入“version”查询当前软件版本");
         while (true){
-            System.out.println("请输入你的姓名");
-            String n = sc.next();
+            String n;
             String m;
+            while (true) {
+                System.out.println("请输入你的姓名");
+                n = sc.next();
+                if (Objects.equals(n, "version")) {
+                    version();}
+            else
+                {
+                    break;
+                }
+            }
             P:
             while (true){
             System.out.println("请输入你的生肖（只能输入鼠、牛、虎、兔、龙、蛇、马、羊、猴、鸡、狗、猪）");
@@ -32,6 +42,9 @@ public class p {
                     case "猪":
                     case "屁":
                         break P;
+                    case "version":
+                        version();
+                        break;
                     default:
                         System.out.println("输错啦！重输！");
                 }
@@ -61,5 +74,8 @@ public class p {
                 return;
             }
         }
+    }
+    public static void version(){
+        System.out.println("v2.0.1");
     }
 }
