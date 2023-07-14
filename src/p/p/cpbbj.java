@@ -51,6 +51,9 @@ public class cpbbj {
         }
         return null;
     }
+    //为什么要把api放这？？？
+    //直接调不行吗？？？？
+    //算了，懒得改了。
     public String[] NameAndChineseZodiacSigns(String data){
         return data.split("，");
     }
