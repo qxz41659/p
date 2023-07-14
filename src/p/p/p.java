@@ -8,7 +8,7 @@ public class p {
         Scanner sc = new Scanner(System.in);
         AreYouP p = new AreYouP();
         cpbbj pp = new cpbbj();
-        System.out.println("v3.0.0");
+        System.out.println("v3.0.1");
         System.out.println("此程序可以测试你屁不屁，而你只需要输入姓名和生肖");
         System.out.println("你可以输入一串数据");
         System.out.println("用中文逗号隔开");
