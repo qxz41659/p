@@ -7,7 +7,7 @@ public class cpbbj {
     static Scanner sc = new Scanner(System.in);
     static Random r = new Random();
     public static void start(){
-        System.out.println("v4.0.0");
+        System.out.println("v4.0.2");
         System.out.println("此程序可以测试你屁不屁");
         System.out.println("你可以输入一串数据");
         System.out.println("用中文逗号隔开");
@@ -42,18 +42,16 @@ public class cpbbj {
         if (name.length != data.length){
             return true;
         }
-        boolean temp = true;
         for (String datum : data) {
             switch (datum) {
                 case "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "摩羯座", "水瓶座", "双鱼座", "屁" -> {
-                    temp = false;
                 }
                 default -> {
-                    temp = true;
+                    return true;
                 }
             }
         }
-        return temp;
+        return false;
     }
     private static void areYouP(String[] name,String[] data){
         for (int i = 0;i < name.length;i++) {
