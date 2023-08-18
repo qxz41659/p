@@ -13,24 +13,24 @@ public class p {
         Random r = new Random();
         cpbbj cpbbj = new cpbbj();
         ArrayList<cpbbj> pp = new ArrayList<>();
-        File f = new File(System.getenv("APPDATA") + "\\WHO_IS_P\\p.WHO_IS_P_DATA");
-        File f1 = new File(System.getenv("APPDATA") + "\\WHO_IS_P");
+        File f = new File(System.getenv("APPDATA") + "\\qxz41659\\Who-is-P\\p.data");
         Pattern pattern = Pattern.compile("[鼠牛虎兔龙蛇马羊猴鸡狗猪屁]");
         Pattern pattern1 = Pattern.compile("(白羊|金牛|双子|巨蟹|狮子|处女|天秤|天蝎|射手|摩羯|水瓶|双鱼)座|屁");
-        try {
-            f1.mkdirs();
-            f.createNewFile();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
         if (f.length() != 0) {
             try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(f))) {
                 pp = (ArrayList<cpbbj>) objectInputStream.readObject();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+        } else {
+            try {
+                new File(System.getenv("APPDATA") + "\\qxz41659\\Who-is-P").mkdirs();
+                f.createNewFile();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
-        System.out.println("v6.0.0");
+        System.out.println("v6.0.1");
         System.out.println("此程序可以测试你屁不屁");
         System.out.println("你可以输入一串数据");
         System.out.println("用中文逗号隔开");
@@ -65,44 +65,39 @@ public class p {
             }
             P:
             for (int i = 0; i < name.length; i++) {
-                if (name[i].equals("屁") && zodiac[i].equals("屁")) {
-                    System.out.println("啊！你如此闲得慌的输入了两个屁！你可真屁！史无前例！");
-                    continue;
-                } else if (name[i].equals("屁") || zodiac[i].equals("屁")) {
-                    System.out.println("啊！你竟然往个人信息中填“屁”，你可真屁！");
-                    continue;
-                } else if (name[i].equals("曲晓贺") && (zodiac[i].equals("蛇") || zodiac[i].equals("天蝎座"))) {
-                    System.out.println("啊！" + name[i] + "！你可真是非常非常非常屁啊！");
-                    continue;
-                } else if (name[i].equals("曲霄致") && (zodiac[i].equals("兔") || zodiac[i].equals("白羊座"))) {
-                    System.out.println("啊！" + name[i] + "！你可太不屁啦！史无前例！");
-                    continue;
-                } else if (name[i].equals("曲晓贺")) {
-                    System.out.println("啊！" + name[i] + "！你名字很屁，" + (command.equals("1") ? "生肖" : "星座") + "不屁！");
-                    continue;
-                } else if (name[i].equals("曲霄致")) {
-                    System.out.println("啊！" + name[i] + "！你名字不屁，" + (command.equals("1") ? "生肖" : "星座") + "很屁！");
-                    continue;
-                }
                 for (cpbbj value : pp) {
                     if ((value.getName().equals(name[i])) && (value.getZodiac().equals(zodiac[i]))) {
                         System.out.println(value.getResults());
                         continue P;
                     }
                 }
-                switch (r.nextInt(3)) {
-                    case 0 -> cpbbj.setResults("你不屁");
-                    case 1 -> cpbbj.setResults("你有点屁");
-                    case 2 -> cpbbj.setResults("你很屁");
-                }
-                cpbbj.setName(name[i]);
-                cpbbj.setZodiac(zodiac[i]);
-                System.out.println(cpbbj.getResults());
-                try (ObjectOutputStream oops1 = new ObjectOutputStream(new FileOutputStream(f))) {
-                    pp.add(cpbbj.clone());
-                    oops1.writeObject(pp);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                if (name[i].equals("屁") && zodiac[i].equals("屁")) {
+                    System.out.println("啊！你如此闲得慌的输入了两个屁！你可真屁！史无前例！");
+                } else if (name[i].equals("屁") || zodiac[i].equals("屁")) {
+                    System.out.println("啊！你竟然往个人信息中填“屁”，你可真屁！");
+                } else if (name[i].equals("曲晓贺") && (zodiac[i].equals("蛇") || zodiac[i].equals("天蝎座"))) {
+                    System.out.println("啊！" + name[i] + "！你可真是非常非常非常屁啊！");
+                } else if (name[i].equals("曲霄致") && (zodiac[i].equals("兔") || zodiac[i].equals("白羊座"))) {
+                    System.out.println("啊！" + name[i] + "！你可太不屁啦！史无前例！");
+                } else if (name[i].equals("曲晓贺")) {
+                    System.out.println("啊！" + name[i] + "！你名字很屁，" + (command.equals("1") ? "生肖" : "星座") + "不屁！");
+                } else if (name[i].equals("曲霄致")) {
+                    System.out.println("啊！" + name[i] + "！你名字不屁，" + (command.equals("1") ? "生肖" : "星座") + "很屁！");
+                }else {
+                    switch (r.nextInt(3)) {
+                        case 0 -> cpbbj.setResults("你不屁");
+                        case 1 -> cpbbj.setResults("你有点屁");
+                        case 2 -> cpbbj.setResults("你很屁");
+                    }
+                    cpbbj.setName(name[i]);
+                    cpbbj.setZodiac(zodiac[i]);
+                    System.out.println(cpbbj.getResults());
+                    try (ObjectOutputStream oops1 = new ObjectOutputStream(new FileOutputStream(f))) {
+                        pp.add(cpbbj.clone());
+                        oops1.writeObject(pp);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }
