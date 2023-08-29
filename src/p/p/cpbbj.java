@@ -6,7 +6,10 @@ public class cpbbj implements Cloneable, Serializable {
     private String name;
     private String zodiac;
     private String results;
-    public void qcpbbj(String name, String zodiac, String results) {
+    public cpbbj(){
+    }
+
+    public cpbbj(String name, String zodiac, String results) {
         this.name = name;
         this.zodiac = zodiac;
         this.results = results;
